@@ -1,0 +1,14 @@
+name: CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+permissions:
+  contents: read
+
+jobs:
+  actions-ci:
+    uses: alextheman231/github-actions/.github/workflows/actions-ci.yml@760f1347c1597e458ce3e966112d7278ed15c059 # v12.5.1
