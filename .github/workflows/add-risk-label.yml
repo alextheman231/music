@@ -1,0 +1,15 @@
+name: Add risk label
+
+on:
+  pull_request:
+    types: [opened, edited]
+
+jobs:
+  add-risk-label:
+    uses: alextheman231/github-actions/.github/workflows/add-risk-label.yml@598b6c41288b1c7c165f5dfbba0ba22413700fcc # v12.7.6
+    permissions:
+      pull-requests: write
+    with:
+      APP_ID: ${{ vars.ALEX_UP_BOT_APP_ID }}
+    secrets:
+      APP_PRIVATE_KEY: ${{ secrets.ALEX_UP_BOT_PRIVATE_KEY }}
