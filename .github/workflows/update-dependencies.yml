@@ -1,0 +1,20 @@
+name: Update Dependencies
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: 0 21 * * 5
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-dependencies:
+    if: ${{ github.repository == 'alextheman231/music' }}
+    uses: alextheman231/github-actions/.github/workflows/update-dependencies.yml@75de70d1e8537c1a680c5628b4f08521e4ddc617 # v12.9.0
+    secrets:
+      APP_ID: ${{ vars.ALEX_UP_BOT_APP_ID }}
+      APP_PRIVATE_KEY: ${{ secrets.ALEX_UP_BOT_PRIVATE_KEY }}
+    with:
+      update_actions: true
+      body-path: .github/pull_request_template.md
