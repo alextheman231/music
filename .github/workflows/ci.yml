@@ -11,4 +11,4 @@ permissions:
 
 jobs:
   actions-ci:
-    uses: alextheman231/github-actions/.github/workflows/actions-ci.yml@760f1347c1597e458ce3e966112d7278ed15c059 # v12.5.1
+    uses: alextheman231/github-actions/.github/workflows/actions-ci.yml@1463f1cd916d9a2ada1f257dd7eaa5bda546b886 # v12.9.2
