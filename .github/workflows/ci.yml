@@ -12,3 +12,14 @@ permissions:
 jobs:
   actions-ci:
     uses: alextheman231/github-actions/.github/workflows/actions-ci.yml@c33cab51e66ede91cc06169f056ce75f59222ff5 # v14.2.0
+
+  secret-scan-ci:
+    permissions:
+      contents: read
+    uses: alextheman231/github-actions/.github/workflows/secret-scan-ci.yml@6303ccc55913d70a641b50c97dc36475c5053c99 # v14.4.0
+    with:
+      github-push-before-sha: ${{ github.event.before }}
+      github-push-base-sha: ${{ github.event.base_ref }}
+      github-pull-base-sha: ${{ github.event.pull_request.base.sha }}
+    secrets:
+      GITGUARDIAN_API_KEY: ${{ secrets.GITGUARDIAN_API_KEY }}
